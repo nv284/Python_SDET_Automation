@@ -1,0 +1,10 @@
+# Core dependencies for presentation & PDF generation
+python-pptx>=0.6.21
+fpdf2>=2.7.0
+
+# Recommended for hands-on practice & modern automation workflows
+pytest>=7.4.0
+rich>=13.0.0          # Beautiful terminal output for reports
+mypy>=1.5.0           # Static type checking (matches type hint slides)
+ruff>=0.1.0           # Fast linter/formatter
+pydantic>=2.4.0       # Runtime validation for API/test configs

@@ -1,0 +1,32 @@
+Day-2 Assignments
+
+Easy/Medium tasks (practice):
+
+1) Build a simple attendance processor
+- Given a list of strings like 'name,present' where present is 'yes' or 'no',
+  produce a report of counts, a list of absentees, and mark anyone with
+  three consecutive 'no' appearances as 'flagged' (simulate by scanning in order).
+  Constraints: no functions; use loops, lists, dicts, sets.
+
+Harder assignments (two small challenges):
+
+A) Transaction Aggregator (Hard)
+- Input: a list of strings representing transactions: 'user_id,amount,category'
+- Tasks:
+  - Aggregate total spent per `user_id` into a dictionary.
+  - Build a set of all categories seen.
+  - Produce the top spender (user id) by scanning the dictionary.
+  - Create a summary list of tuples `(user_id, total)` sorted descending by total
+    WITHOUT using `sorted()` (implement sorting via loop-based algorithm).
+  Constraints: do not use `def`/functions, do not use `sorted()` or list.sort().
+
+B) Data Cleaner & Reporter (Hard)
+- Input: list of messy records where fields may be missing or duplicated, e.g.
+  'id,name,email' or 'id,,email' or 'id,name,name,email'
+- Tasks:
+  - Clean each record: ensure exactly `id,name,email` fields; when name missing use 'UNKNOWN'; when duplicated fields appear keep the first occurrence.
+  - Remove duplicate records by `id` keeping the last occurrence seen.
+  - Produce a dictionary mapping `id` -> cleaned record and print counts by domain (email domain after @).
+  Constraints: linear scripts only, heavy use of control flow and collections.
+
+Notes: both hard assignments test nested conditions, loops, dict/set/list usage, and manual sorting/manipulation without helper functions.
