@@ -1,0 +1,25 @@
+Day-4 Assignments
+
+Practice task:
+
+1) Simple Page Object creation
+- Create a `ContactPage` class that inherits from `BasePage` and exposes methods to `add_contact(name, phone)` and `list_contacts()` storing contacts in an internal list. Demonstrate usage in a runner.
+
+Two assignments (small challenges):
+
+A) Component Library (Assignment A - Moderate)
+- Build a small component library for a fictional UI testing framework:
+  - Create a `BaseComponent` with common methods like `is_displayed()` and `get_text()` that return simulated values.
+  - Implement at least two derived components (`Button`, `InputField`) that override `get_text()` or other behavior.
+  - Create a runner that composes components into a `Form` class and simulates form submission, using inheritance and encapsulation.
+  - Deliverable: module files under `projects/` and a runner showing polymorphism in action.
+
+B) Simple Framework Skeleton (Assignment B - Challenging)
+- Build a minimal automation framework skeleton that demonstrates OOP mapping concepts:
+  - `BasePage` and at least two concrete page classes (e.g., `LoginPage`, `DashboardPage`).
+  - A `Browser` class that acts as a session manager with methods `start()`, `stop()`, and `navigate(url)` and holds current page state.
+  - Implement a `PageFactory`-like mapping (dictionary) that returns the correct page class by name and demonstrates dependency injection (pass the `Browser` instance to pages).
+  - Use method overriding to show different `open()` behaviors and demonstrate encapsulation of browser state.
+  - Deliverable: modular code under `projects/` with a runner that orchestrates a login-to-dashboard flow using the `Browser` and `PageFactory`.
+
+Notes: Emphasize constructors, instance variables, inheritance, polymorphism, and encapsulation. Keep examples simple and runnable without external dependencies.

@@ -1,0 +1,25 @@
+Day-5 Assignments
+
+Practice task:
+
+1) File aggregator
+- Write a script that reads multiple text files from a folder, counts total lines and words across all files, and writes a summary report to `report.txt`. Include exception handling for missing files and log actions.
+
+Two assignments:
+
+A) CSV Reporter (Assignment A - Moderate)
+- Input: A CSV of test results with columns `id,name,status,score`.
+- Tasks:
+  - Read the CSV and produce a JSON report summarizing counts per `status` and average score per status.
+  - Handle malformed rows robustly (skip and log a warning).
+  - Write output JSON to `report.json` and log processing steps.
+
+B) Robust Fixture Loader (Assignment B - Challenging)
+- Build a fixture loader module that:
+  - Accepts multiple fixture files in CSV and JSON formats.
+  - Validates fields and normalizes types (e.g., convert numeric strings to ints).
+  - Aggregates fixtures into a single JSON database file.
+  - Exposes clear error messages and retries for transient IO errors (simulate retry loop with backoff).
+  - Implement structured logging with timestamps and levels; include an option to enable debug logging.
+
+Notes: Emphasize using `with` for file ops, robust `try`/`except` handling, and `logging` for traceability. Provide small sample fixtures in `projects/` to test with.

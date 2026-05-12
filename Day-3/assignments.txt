@@ -1,0 +1,25 @@
+Day-3 Assignments
+
+Practice tasks:
+
+1) Argument Explorer
+- Create a script that demonstrates calling a function with positional args, keyword args, `*args`, and `**kwargs` in multiple ways. Print results showing how arguments are received.
+
+Hard assignments (two challenges):
+
+A) Flexible Calculator (Hard)
+- Build a modular calculator with the following requirements:
+  - A `calculate` function that accepts an operation name and variable operands via `*args` and `**kwargs` for options (e.g., precision=2).
+  - Support operations: `add`, `mul`, `avg`, `max`, `min` using `*args` for numbers.
+  - Use lambdas or small helper functions for each operation and store them in a dictionary mapping.
+  - Return numeric result formatted according to `precision` passed in `**kwargs` (default 2).
+  - Provide a runner demonstrating various calls.
+  Constraints: split logic into modules under `projects/` and import in runner; use `lambda`, `*args`, `**kwargs` heavily.
+
+B) Data Transformer Pipeline (Hard)
+- Build a small pipeline that accepts a list of records and a variable list of transformation functions (use `*args` to accept transformations). Each transformation is a `lambda` or regular function that maps a record to a new record.
+- Apply the transformations in sequence using `map` or explicit loops and produce a final list.
+- Add optional filtering via a `filter_fn` keyword argument (in `**kwargs`) to drop records.
+- Constraints: show module separation and include examples of `map`, `filter`, and lambdas. Provide a manual test runner that prints intermediate pipeline states.
+
+Notes: these assignments emphasize `*args`, `**kwargs`, lambdas, and modular code organization.
