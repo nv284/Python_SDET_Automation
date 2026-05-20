@@ -1,7 +1,8 @@
 # Exception handling and basic logging example
 import logging
 
-logging.basicConfig(level=logging.DEBUG, format='%(levelname)s:%(message)s')
+logging.basicConfig(level=logging.DEBUG,
+                     format='%(levelname)s:%(message)s')
 logger = logging.getLogger('day5')
 
 def safe_div(a, b):

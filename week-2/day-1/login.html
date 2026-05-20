@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+</head>
+
+<body>
+
+    <h2>Simple Login Page</h2>
+
+    <!-- Username -->
+    <label>Username:</label>
+    <input type="text" id="username">
+
+    <br><br>
+
+    <!-- Password -->
+    <label>Password:</label>
+    <input type="password" id="password">
+
+    <br><br>
+
+    <!-- Login Button -->
+    <button id="loginBtn" onclick="login()">
+        Login
+    </button>
+
+    <br><br>
+
+    <!-- Message -->
+    <p id="message"></p>
+
+    <script>
+
+        function login() {
+
+            let user =
+                document.getElementById("username").value;
+
+            let pass =
+                document.getElementById("password").value;
+
+            if(user == "admin" && pass == "1234") {
+
+                document.getElementById("message").innerHTML =
+                    "Login Successful";
+
+            }
+
+            else {
+
+                document.getElementById("message").innerHTML =
+                    "Invalid Credentials";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

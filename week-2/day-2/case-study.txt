@@ -1,0 +1,45 @@
+E-Commerce Website Automation
+Problem Statement
+An e-commerce company wants to automate its shopping workflow to reduce manual testing effort.
+
+The QA Automation team must automate:
+Login functionality
+Product validation
+Add to cart action
+Dynamic table handling
+Success message validation
+
+The application contains:
+Dynamic IDs
+Changing class names
+Dynamic tables
+Navigation links
+
+The goal is to create stable Selenium locators using:
+XPath
+CSS Selectors
+contains()
+starts-with()
+XPath Axes
+
+===========================================================================================
+
+HR Management System Automation
+Problem Statement
+
+An HR Management System contains employee records in dynamic tables.
+
+The QA team must automate:
+
+Login process
+Employee search
+Edit employee action
+Delete employee action
+Dynamic status validation
+
+The application contains:
+
+Dynamic search IDs
+Employee tables
+Multiple buttons
+Dynamic rows
