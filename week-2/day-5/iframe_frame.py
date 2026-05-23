@@ -6,16 +6,10 @@ import time
 #Open website-->Switch to iframe-->Read text inside frame-->Switch back to main page
 
 driver = webdriver.Chrome()
-
-
 driver.get("https://demoqa.com/frames")
-
-
 driver.maximize_window()
-
 # Wait for page load
 time.sleep(2)
-
 # ---------------- SWITCH TO FRAME ----------------
 
 # Switch to iframe using frame ID
