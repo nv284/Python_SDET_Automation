@@ -1,0 +1,11 @@
+Data-Driven API Testing Using Excel
+
+Install Required Library
+
+---> pip install openpyxl
+
+Important for Python 3.14
+---> pip install --upgrade openpyxl
+
+---> python -m pip install --upgrade pip
+

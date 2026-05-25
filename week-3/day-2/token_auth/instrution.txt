@@ -1,0 +1,75 @@
+steps:
+===========
+
+1) Login API (token_auth_1.py)
+run this python code and it will generate token -
+Generated Token
+----------------
+eyJhbGciOiJIUzI1NiIs...
+
+2) Using Token in Another API (protect_api.py)
+
+After login, use token in protected API.
+
+
+3) Now Authorization Header
+Authorization: Bearer TOKEN
+
+| Part          | Meaning             |
+| ------------- | ------------------- |
+| Authorization | Header name         |
+| Bearer        | Token type          |
+| TOKEN         | Actual access token |
+
+Postman Steps for Token Authentication
+Step 1 — Login API
+       |
+       |
+    POST ---- https://dummyjson.com/auth/login
+                                         |
+                                         |
+                               add request Body - goto body/raw/json
+                                                                 | 
+                                                                 |pass json data 
+                                                                 {
+                                                                    "username": "emilys",
+                                                                    "password": "emilyspass"
+                                                                   }
+                                                                   click on send button 
+                                                                   |
+                                        it will generate Token then -Copy Access Token form response
+                                                                                |
+                                                              {
+                                                                "accessToken": "eyJhbGc..."
+                                                               }
+
+step-2 -Access Protected API
+    GET ---- https://dummyjson.com/auth/me
+                      Add Authorization Header
+                                   |
+                               Go to:-->Headers--->Add:
+                               | Key           | Value             |
+                               | ------------- | ----------------- |
+                               | Authorization | Bearer YOUR_TOKEN |
+                                     |
+                                     |
+                        Click Send ---> You will receive authenticated user details.
+
+============================================================================
+
+Common Authentication Types
+----------------------------
+
+| Authentication Type | Example              |
+| ------------------- | -------------------- |
+| Basic Auth          | Username + Password  |
+| Bearer Token        | JWT token            |
+| OAuth 2.0           | Google Login         |
+| API Key             | x-api-key            |
+| JWT Authentication  | Encoded secure token |
+
+
+
+
+
+
