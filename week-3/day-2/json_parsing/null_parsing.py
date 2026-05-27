@@ -1,6 +1,8 @@
 #Null Validation Methods ---> 
-# Method 1 — Using is None ---if data["description"] is None: print("NULL Value")
-#  and Method 2 — Using Assertion ---- assert data["description"] is None
+# Method 1 — Using is None ---if data["description"] is 
+# None: print("NULL Value")
+#  and Method 2 — Using Assertion ----
+#  assert data["description"] is None
 import requests
 
 url = "https://jsonplaceholder.typicode.com/users/1"

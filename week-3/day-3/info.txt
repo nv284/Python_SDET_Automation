@@ -1,0 +1,3 @@
+install sqlight 
+------------------
+code --install-extension alexcvzz.vscode-sqlite

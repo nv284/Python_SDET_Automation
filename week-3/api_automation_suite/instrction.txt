@@ -1,0 +1,61 @@
+api_automation_suite/
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_login.py
+│   ├── test_users.py
+│   ├── test_data_driven_login.py
+│
+├── utils/
+│   ├── __init__.py
+│   ├── api_client.py
+│   ├── config.py
+│
+├── data/
+│   ├── login_data.json
+│
+├── reports/
+│
+├── pytest.ini
+
+framework flow 
+-------------------
+pytest execution
+      ↓
+Pytest discovers test files
+      ↓
+Imports framework utilities
+      ↓
+Loads config values
+      ↓
+Creates API client object
+      ↓
+Builds request
+      ↓
+Sends HTTP request
+      ↓
+API server processes request
+      ↓
+Response returned
+      ↓
+JSON parsing happens
+      ↓
+Assertions/validations execute
+      ↓
+Pytest marks PASS/FAIL
+      ↓
+HTML report/log generated
+
+
+install 
+-------------
+1) pip install pytest requests pytest-html
+
+execution 
+-------------
+pytest -v 
+
+execution flow 
+------------------
+
+

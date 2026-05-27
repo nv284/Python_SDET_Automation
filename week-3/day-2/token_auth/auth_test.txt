@@ -1,0 +1,71 @@
+Token Generation in Postman
+Step 1 → Open Postman
+Create new request.
+Step 2 → Select Method
+POST
+Step 3 → Enter URL
+https://dummyjson.com/auth/login
+Step 4 → Go to Body
+Select:--->Body → raw → JSON
+Step 5 → Add Payload
+    {
+   "username": "emilys",
+   "password": "emilyspass"
+}
+
+Step 6 → Click Send
+
+Server returns:
+
+{
+   "accessToken": "abc123xyz"
+}
+Step 7 → Copy Token
+
+Copy:
+
+accessToken
+
+Token Consumption in Postman
+Step 8 → Create New Request
+
+Select:
+
+GET
+Step 9 → Enter Secured API URL
+https://dummyjson.com/auth/me
+Step 10 → Go to Authorization Tab
+
+Select:
+
+Bearer Token
+Step 11 → Paste Token
+
+Paste copied token.
+
+Step 12 → Click Send
+
+If token valid:
+
+Status Code = 200 OK
+
+Response:
+
+{
+   "email": "emily@example.com"
+}
+
+
+End to end flow 
+================
+POST /auth/login
+        ↓
+Token generated
+        ↓
+Copy ONLY token value
+        ↓
+Pass token in Bearer Authorization
+        ↓
+GET /auth/me
+        ↓
+200 OK
