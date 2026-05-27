@@ -1,6 +1,6 @@
 import requests
 from openpyxl import load_workbook
-import io
+
 from zipfile import ZipFile
 
 # Load Excel file
