@@ -8,6 +8,9 @@
 
 import requests
 
+
+session = requests.Session()
+
 # Login API URL
 url = "https://dummyjson.com/auth/login"
 

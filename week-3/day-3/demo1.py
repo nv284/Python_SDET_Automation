@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connect Database
-connection = sqlite3.connect("company.db")
+connection = sqlite3.connect("tcs.db")
 
 # Create Cursor
 cursor = connection.cursor()
@@ -50,6 +50,12 @@ INSERT INTO users (id, name, email)
 VALUES (2, 'Alice', 'alice@test.com')
 """)
 
+cursor.execute("""
+INSERT INTO users (id, name, email)
+VALUES (3, 'Bob', 'bob@test.com')
+""")
+
+
 print("Users data inserted")
 # -----------------------------------
 # STEP 5 → Insert Data into orders Table
@@ -64,7 +70,7 @@ cursor.execute("""
 INSERT INTO orders (order_id, user_id, product)
 VALUES (102, 2, 'Mobile')
 """)
-
+cursor.execute("""select * from orders""")
 print("Orders data inserted")
 
 # -----------------------------------

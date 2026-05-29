@@ -1,3 +1,51 @@
 install sqlight 
 ------------------
 code --install-extension alexcvzz.vscode-sqlite
+
+Open Database
+
+Right-click:--->company.db → Open Database
+
+Right-click database/table:--->New Query
+
+Run Query  ---- or-----CTRL + SHIFT + Q
+
+Install:---->SQLite Viewer
+===================
+right-click .db file:
+
+Open With → SQLite Viewer
+
+Install:
+----------
+
+SQLTools Extension
+
+SQLTools SQLite Driver
+
+================
+SQLTools → Add New Connection
+|
+|
+Choose:----->SQLite
+
+Select:----->company.db
+============================================
+
+SQLTools
+*********
+Open Extensions in VS Code
+
+Shortcut:---->Ctrl + Shift + X
+
+or click:------>Extensions Icon (Left Sidebar)
+
+===============================================
+| Tool                     | Purpose                       |
+| ------------------------ | ----------------------------- |
+| VS Code                  | Code editor                   |
+| Python                   | Run Python database scripts   |
+| SQLite3                  | Database engine               |
+| SQLTools Extension       | Run SQL queries visually      |
+| SQLite Driver            | Connect SQLTools with SQLite  |
+| SQLite Viewer (Optional) | View database tables visually |

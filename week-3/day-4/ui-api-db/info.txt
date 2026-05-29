@@ -1,0 +1,44 @@
+UI → API → Database
+=========================
+| Component    | Technology                 |
+| ------------ | -------------------------- |
+| UI Test Data | Simulated User Input       |
+| API          | ReqRes Public API          |
+| Database     | MySQL                      |
+| Language     | Python                     |
+| Libraries    | requests + mysql-connector |
+=========================================================
+Application flow 
+----------------
+User enters details in UI
+        ↓
+Application calls API
+        ↓
+Backend stores user in MySQL DB
+        ↓
+Tester validates complete flow
+=================================
+API endpoints ===>  https://reqres.in/api/users
+=================================================
+
+Required Libraries
+------------------
+1)  pip install mysql-connector-python
+
+2) pip install requests
+
+-----------------------------------------------------------------------
+Create MySQL Database
+*********************
+1) CREATE DATABASE company_db;
+
+2) USE company_db;
+
+3) CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    job VARCHAR(100),
+    createdAt VARCHAR(100)
+);
+
+4)Create python  file: ==== e2e_validation_mysql.py
