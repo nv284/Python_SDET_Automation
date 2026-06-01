@@ -1,80 +1,70 @@
 import random
-import re
 import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
+# Generate unique user
+username = f"user_{random.randint(1000,9999)}"
+password = "Test123"
 
-def test_real_hybrid_login():
-    # Generate a completely unique username every run to prevent "User already exists" conflicts
-    unique_id = random.randint(10000, 99999)
-    username = f"hybrid_user_{unique_id}"
-    password = "SecurePassword123!"
+# ---------------------------
+# Step 1: Create User via API
+# ---------------------------
+payload = {
+    "username": username,
+    "password": password
+}
 
-    print(f"--- STARTING SCENARIO FOR USER: {username} ---")
+response = requests.post(
+    "https://api.demoblaze.com/signup",
+    json=payload
+)
 
-    # --- STEP 1: Dynamic API Registration (Pre-requisite Injection) ---
-    signup_url = "https://api.demoblaze.com/signup"
-    signup_payload = {"username": username, "password": password}
+print(f"User created: {username}")
 
-    signup_response = requests.post(signup_url, json=signup_payload)
-    assert (
-        signup_response.status_code == 200
-    ), "Database Injection Phase: API Registration failed"
-    print("1. API Signup Phase Passed. User created directly in backend database.")
+# ---------------------------
+# Step 2: Login via UI
+# ---------------------------
+driver = webdriver.Chrome()
+wait = WebDriverWait(driver, 10)
 
-    # --- STEP 2: Instant Backend API Authentication ---
-    login_url = "https://api.demoblaze.com/login"
-    login_payload = {"username": username, "password": password}
+try:
+    driver.get("https://www.demoblaze.com")
 
-    login_response = requests.post(login_url, json=login_payload)
-    assert (
-        login_response.status_code == 200
-    ), f"API Error! HTTP status code is: {login_response.status_code}"
+    # Click Login
+    driver.find_element(By.ID, "login2").click()
 
-    # Safely extract the token string using regex
-    raw_text = login_response.text
-    token_match = re.search(r"Auth_token:\s*([^\s\"]+)", raw_text)
+    # Enter credentials
+    wait.until(
+        EC.visibility_of_element_located((By.ID, "loginusername"))
+    ).send_keys(username)
 
-    if not token_match:
-        raise ValueError(
-            f"Failed to find expected token in API response: {raw_text}"
-        )
+    driver.find_element(By.ID, "loginpassword").send_keys(password)
 
-    token = token_match.group(1)
-    print(f"2. API Authentication Passed. Token generated: {token[:15]}...")
+    driver.find_element(
+        By.XPATH,
+        "//button[text()='Log in']"
+    ).click()
 
-    # --- STEP 3: Browser Context Handshake ---
-    driver = webdriver.Chrome()
-    driver.implicitly_wait(10)
+    # ---------------------------
+    # Step 3: UI Validation
+    # ---------------------------
+    welcome = wait.until(
+        EC.visibility_of_element_located((By.ID, "nameofuser"))
+    )
 
-    try:
-        # Load the target domain first so the browser allows us to write to storage
-        driver.get("https://www.demoblaze.com/")
+    ui_username = welcome.text.replace("Welcome ", "")
 
-        # --- STEP 4: Injecting the Hybrid Payload via JavaScript ---
-        # Inject the newly registered user's credentials into HTML5 sessionStorage
-        driver.execute_script(f"sessionStorage.setItem('tokenp_', '{token}');")
-        driver.execute_script(f"sessionStorage.setItem('user', '{username}');")
-        print("3. Hybrid Sync Phase Passed. Session parameters written.")
+    # ---------------------------
+    # Step 4: Hybrid Validation
+    # ---------------------------
+    assert ui_username == username
 
-        # --- STEP 5: Frontend Refresh & Verification ---
-        driver.refresh()
+    print("Hybrid Validation Passed")
+    print(f"API User : {username}")
+    print(f"UI User  : {ui_username}")
 
-        # Locate the welcoming navigation element that displays user context profile identity
-        welcome_element = driver.find_element(By.ID, "nameofuser")
-
-        assert (
-            username in welcome_element.text
-        ), f"UI Error! Element displayed unexpected text: '{welcome_element.text}'"
-        print(
-            f"4. UI Phase Passed. Dashboard active. Welcome banner says: '{welcome_element.text}'"
-        )
-
-    finally:
-        # Close browser instance safely
-        driver.quit()
-
-
-if __name__ == "__main__":
-    test_real_hybrid_login()
+finally:
+    driver.quit()

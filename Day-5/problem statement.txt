@@ -1,0 +1,64 @@
+
+
+Text:      Auth_token:   eyJhbGciOiJIUzI1NiJ9...  "expires":3600
+Regex:     Auth_token:\s*([^\s\"]+)
+Match:     [─────────][─][─────────────────────]
+Part:       Literal   |     Capture Group
+                   Space
+===============================================================
+1)Problem Statement
+----------------------
+
+Validate that the authenticated user's profile information displayed in the UI matches the user information returned by the backend API.
+
+Scenario
+
+An application allows users to log in and view their profile details. To ensure data consistency between the backend and frontend:
+
+Authenticate the user using an API and retrieve the user's profile information (e.g., username).
+Open the application using Selenium and navigate to the Profile page.
+Capture the username displayed in the UI.
+Compare the username returned by the API with the username displayed in the UI.
+The test should pass only if both values match.
+Expected Result
+The username returned by the API should be the same as the username displayed on the Profile page.
+If the values do not match, the test should fail and report a data inconsistency issue.
+Why This Is a Hybrid Validation Scenario
+Backend Validation: Verify successful authentication and retrieve user data through an API.
+Frontend Validation: Verify the same user data is correctly displayed in the UI using Selenium.
+Hybrid Validation: Compare backend data with frontend data to ensure end-to-end consistency.
+
+======================================================================
+
+Problem Statement: Validate Order Status Using API and UI
+==================
+An e-commerce application allows users to place orders and track their order status.
+
+Scenario
+Retrieve the latest order details for a user using a backend API.
+Extract the order status from the API response (for example: "Shipped", "Delivered", or "Processing").
+Open the application using Selenium and navigate to the My Orders page.
+Locate the same order in the UI and capture its displayed status.
+Compare the order status from the API with the order status shown in the UI.
+Expected Result
+The order status displayed in the UI should exactly match the status returned by the API.
+If the statuses do not match, the test should fail.
+Why This Is a Hybrid Validation Scenario
+API Validation: Verify the actual order status stored in the backend.
+UI Validation: Verify the status shown to the customer.
+Hybrid Validation: Compare backend data with frontend data to ensure consistency.
+Example
+
+API Response:
+
+{
+  "orderId": 1001,
+  "status": "Shipped"
+}
+
+UI Display:
+
+Order #1001
+Status: Shipped
+
+Result: Pass ✅

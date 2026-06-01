@@ -1,0 +1,68 @@
+Debugging Flow in Selenium
+Test Execution
+      ↓
+Test Fails
+      ↓
+Read Error Message
+      ↓
+Identify Failure Point
+      ↓
+Analyze Root Cause
+      ↓
+Fix Script/Application
+      ↓
+Re-run Test
+      ↓
+Verify Result
+
+Common Selenium Errors
+A. NoSuchElementException--->driver.find_element(By.ID, "username123")|
+                                                                    |
+ solution -> WebDriverWait(driver,10).until(
+    EC.presence_of_element_located((By.ID,"username"))
+) 
+
+B.  TimeoutException
+problem -
+ WebDriverWait(driver,5).until(
+    EC.visibility_of_element_located((By.ID,"login"))
+)
+solution - WebDriverWait(driver,15)
+
+c. StaleElementRefrenceException 
+problem - page refreshed after element locating 
+button.click()
+driver.refresh()
+
+button.click()
+-------------------------------------------------------------
+BreakPoint -A breakpoint pauses execution at a specific line.
+example -
+       driver.get("hhtps://google.com")
+       search_box = driver.find_element(BY.NAME , "q") <-breakpoint
+       send_keys("python")
+   
+
+Debugging Tech -
+1) Print statement --  print("step 1") 
+                  driver.get("https://google.com")
+                       print("setp 2)
+                  x = driver.find_element(By.NAME , "x")
+                       print("step 3)
+                       send_keys("hello")
+2) Logging --- 
+         import Logging
+         Logging.baseConfig(level= logging.info)
+         logging.info("LoggingInfo")
+
+3) ScreentShot 
+         driver.save_screenshot("debug.png")
+
+4) Browser Inspection
+         crtl+ shift + i 
+         F12
+         right click menu->inspect                   
+5) Explicit Wait
+         WebDriverWait(driver,10).until(
+    EC.visibility_of_element_located((By.ID,"login"))
+    )
