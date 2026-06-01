@@ -8,7 +8,7 @@ from datetime import datetime
 
 print("========== UI INPUT ==========")
 
-user_name = "John Doe"
+user_name = "sheena"
 user_job = "QA Engineer"
 
 print("Entered Name :", user_name)
@@ -91,12 +91,12 @@ print("Connected to MySQL Successfully")
 print("\n========== INSERT DATA ==========")
 
 insert_query = """
-INSERT INTO users (id, name, job, createdAt)
-VALUES (%s, %s, %s, %s)
+INSERT INTO users ( name, job, createdAt)
+VALUES ( %s, %s, %s)
 """
 
 values = (
-    api_id,
+    
     user_name,
     user_job,
     created_at
