@@ -1,0 +1,34 @@
+pytest :
+
+import unittest
+
+class TestMath(unittest.TestCase): # Forced inheritance
+    def test_add(self):
+        self.assertEqual(2 + 2, 4) # Verbose assertion
+---------------------------------------------------------------
+def test_add():
+    assert 2 + 2 == 4 # Clean, standard Python
+=======================================================
+
+  def test_native_syn():
+     user_roles=["admin" . "editor"]
+  
+      assert "admin" in user_roles 
+      assert len(user_roles) == 2
+      assert type(user_roles) is list 
+
+=====================================================
+  import pytest 
+      def divide_number(a,b):
+          return a/b 
+   def test_zero_division():
+      with pytest.raises(ZeroDivisonError):
+         divide_numbers(10,0)
+
+
+
+   
+
+
+
+

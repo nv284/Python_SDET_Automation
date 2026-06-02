@@ -1,0 +1,93 @@
+Google Search Validation
+
+Problem Statement:
+
+A beginner automation engineer has written Selenium code where:
+• Browser launch code is inside every test.
+• Website URL is hardcoded.
+• Element locators are inside test scripts.
+• Framework becomes difficult to maintain.
+
+Goal:
+Create a simple Hybrid Framework using:
+• Selenium
+• Python
+• unittest
+• Page Object Model (POM)
+• Utility Class
+• Configuration File
+
+This example is intentionally simple for beginners.
+========================================================
+Why This Is a Hybrid Framework?
+
+1. POM
+   GooglePage stores locators and actions.
+
+2. Config File
+   Test data is stored separately.
+
+3. Utility Layer
+   Browser launch code is reusable.
+
+4. unittest
+   Handles test execution and assertions.
+=======================================
+How To Run - Baby Steps
+
+Step 1:
+Install Python
+
+python --version
+
+Step 2:
+Install Selenium
+
+pip install selenium
+
+Step 3:
+Create folder structure exactly as shown.
+
+Step 4:
+Create all files and paste code.
+
+Step 5:
+Add empty __init__.py files inside:
+config
+pages
+utilities
+tests
+
+Step 6:
+Open Command Prompt
+
+cd GoogleFramework
+
+Step 7:
+Run the test
+
+python -m tests.test_google
+
+Why use -m?
+It allows Python to recognize folders as packages and avoids import errors.
+
+Expected Output:
+
+.
+----------------------------------------------------------------------
+Ran 1 test
+
+OK
+
+
+
+
+
+
+__init__.py tells Python:
+
+"Treat this folder as a Python package."
+
+Without it, Python may not be able to import files from that
+ folder correctly (especially in older Python versions and automation 
+ frameworks).

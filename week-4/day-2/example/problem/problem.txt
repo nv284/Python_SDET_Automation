@@ -1,0 +1,46 @@
+Problem Statement
+
+A QA team has created a small Selenium framework with two test cases:
+1. Login Test
+2. Search Test
+
+The framework is built using unittest. Every test class contains setUp() and tearDown() methods.
+As the framework grows, browser setup code is duplicated across multiple files, increasing maintenance effort.
+
+==================================
+Problems with unittest Approach
+
+• Browser setup code is duplicated.
+• Browser teardown code is duplicated.
+• Any browser configuration change requires updates in multiple files.
+• Maintenance effort increases as the framework grows.
+• Violates the DRY (Don't Repeat Yourself) principle.
+
+==============================================================
+Solution: Convert Framework to PyTest
+***************************************
+ project
+│
+├── conftest.py
+├── test_login.py
+└── test_search.py
+
+confest.py 
+         Explanation:
+• Code before yield acts as setup.
+• Code after yield acts as teardown.
+• Fixture is reusable across all test files.
+
+Execution Flow
+**************
+
+PyTest Starts
+      ↓
+Fixture Launches Browser
+      ↓
+Test Executes
+      ↓
+Fixture Closes Browser
+      ↓
+Next Test
+
