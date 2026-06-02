@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
 class LoginPage(BasePage):
-    # 🎯 Resilient attributes on the Swag Labs login window
+    #  Resilient attributes on the Swag Labs login window
     USERNAME_INPUT = (By.CSS_SELECTOR, "input[data-test='username']")
     PASSWORD_INPUT = (By.CSS_SELECTOR, "input[data-test='password']")
     LOGIN_BUTTON = (By.CSS_SELECTOR, "input[data-test='login-button']")
