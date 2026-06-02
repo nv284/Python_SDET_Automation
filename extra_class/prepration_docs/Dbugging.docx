@@ -66,3 +66,228 @@ Debugging Tech -
          WebDriverWait(driver,10).until(
     EC.visibility_of_element_located((By.ID,"login"))
     )
+
+Q1. What is debugging?
+
+Finding and fixing issues in automation scripts.
+
+Q2. What tools do you use for debugging?
+Breakpoints
+Print statements
+Logging
+Screenshots
+Browser DevTools
+Q3. What is a breakpoint?
+A marker that pauses execution and allows inspection of variables and application state.
+
+Q4. How do you debug dynamic elements?
+Explicit waits
+Verify locator
+Check iframe
+Check DOM updates
+Re-locate element
+Q5. How do you debug failed Selenium tests?
+Read exception.
+Check locator.
+Add logs.
+Take screenshot.
+Verify waits.
+Reproduce manually.
+
+==========================================================
+Screenshot Tech- 
+
+1) Full Page /Browser screenshot 
+            driver.save_screenshot("error.png")
+
+2)Specific Element Screenshot
+            element.screenshot("error123.png")
+
+Q3. Why are screenshots important?
+
+They help in debugging, reporting, and providing evidence of test execution.
+
+Q4. When should screenshots be captured?
+On test failure
+After successful transactions
+During UI validation
+Before/after critical actions
+Q5. Which screenshot method is most commonly used in automation frameworks?
+driver.save_screenshot()
+
+because it captures the complete browser state and is typically attached to reports when tests fail.
+
+===========================================================
+Reporting 
+-----------
+Reporting is the process of generating a document or 
+dashboard that shows the result of test execution.
+Advantages of Reporting
+1. Easy Analysis
+
+Know which tests passed and failed.
+
+2. Failure Investigation
+
+Reports show:
+
+Error messages
+Stack traces
+Screenshots
+3. Evidence
+
+Proof that testing was executed.
+
+4. Better Communication
+
+Developers and managers can quickly review results.
+
+5. Historical Tracking
+
+Compare results across multiple executions.
+---------------
+Types of Reports in Selenium-
+1) simple text report 
+ example - report = open("report.txt", "w")
+
+report.write("Login Test - PASS")
+
+report.close()
+
+2) HTML Report
+
+   <table>
+<tr>
+<td>Login Test</td>
+<td>PASS</td>
+</tr>
+</table>
+
+3) Extent Report - Most popular in automation projects.
+   Features:
+
+Pie charts
+Screenshots
+Categories
+Dashboard
+
+4) Allure Report--Common in PyTest frameworks.
+
+When is Reporting Required?
+Case 1: Daily Regression Execution
+Case 2: Release Testing
+
+Before production deployment:
+Case 3: Client Demo
+
+Need evidence:
+Case 4: CI/CD Pipeline
+
+Example:
+Jenkins
+Azure DevOps
+GitHub Actions
+
+Case 5: Failure Analysis
+
+==========================================
+Q1. What is reporting in Selenium?
+
+Reporting is the process of generating execution results showing pass/fail status, execution details, screenshots, and errors.
+
+Q2. Why do we use reports?
+
+To analyze results, track failures, provide evidence, and communicate test outcomes.
+
+Q3. What information should a report contain?
+Test Name
+Status
+Execution Time
+Error Message
+Screenshot
+Environment Details
+Q4. Which reporting tools have you used?
+PyTest HTML Reports
+Allure Reports
+Extent Reports
+Q5. Why attach screenshots to reports?
+
+Screenshots provide visual evidence and help developers quickly identify failures.
+
+=============================================================================
+How do you maintain screenshots in large automation projects?
+
+Answer:
+
+Store in dedicated Screenshot folder
+Use timestamps
+Organize by execution date
+Delete old screenshots periodically
+from datetime import datetime
+
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+driver.save_screenshot(f"Login_{timestamp}.png")
+-------------------------------------------------------------------
+
+What challenges have you faced with screenshots?
+
+Answer:
+
+Dynamic pages loading slowly
+Capturing before page fully loads
+Overwriting old screenshots
+Large storage consumption
+--------------------------------------------------
+Q- How do you attach screenshots to reports?
+import allure
+
+allure.attach.file(
+    "failure.png",
+    name="Failure Screenshot",
+    attachment_type=allure.attachment_type.PNG
+)
+----------------------------------------------------
+Explain a real-time debugging issue you resolved.
+
+Answer:
+
+During login automation, scripts were intermittently failing with
+ NoSuchElementException. Investigation showed the page was loading slowly. 
+I replaced static waits with Explicit Waits and the issue was resolved.
+------------------------------------------------------------
+| Debugging            | Logging                  |
+| -------------------- | ------------------------ |
+| Manual investigation | Automated record keeping |
+| Uses breakpoints     | Uses log statements      |
+| Real-time analysis   | Historical analysis      |
+----------------------------------------------------------
+
+Screenshot is not getting captured. How will you investigate?
+
+Answer:
+
+Verify file path
+Check write permissions
+Ensure browser session is active
+Check exception logs
+-------------------------------------------------------
+Report shows FAIL but screenshot is missing. What could be the reason?
+
+Answer:
+
+Screenshot code not executed
+Wrong screenshot path
+Driver already closed
+File permission issue
+
+Q-How do you debug StaleElementReferenceException?
+Relocate element 
+button = driver.find_element(By.ID, "submit")
+button.click()
+
+Q-Which is more important in a framework: Reporting or Screenshots?
+
+Answer:
+Both are important. Reporting provides execution summary, while screenshots provide
+ visual proof of failures. Together they make troubleshooting much faster.
+ 
