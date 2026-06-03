@@ -1,0 +1,22 @@
+New Project Structure
+
+GoogleFramework_pytest
+│
+├── config
+│    ├── __init__.py
+│    └── config.py
+│
+├── pages
+│    ├── __init__.py
+│    └── google_page.py
+│
+├── utilities
+│    ├── __init__.py
+│    └── browser_utils.py
+│
+├── tests
+│    ├── __init__.py
+│    └── test_google.py
+│
+└── conftest.py
+

@@ -17,6 +17,21 @@ Create a simple Hybrid Framework using:
 • Utility Class
 • Configuration File
 
+Project Structure
+
+GoogleFramework
+│
+├── config
+│    └── config.py
+│
+├── pages
+│    └── google_page.py
+│
+├── utilities
+│    └── browser_utils.py
+│
+└── tests
+     └── test_google.py
 This example is intentionally simple for beginners.
 ========================================================
 Why This Is a Hybrid Framework?

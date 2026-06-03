@@ -1,0 +1,17 @@
+HARD Assertion-
+***************
+Assertion Fails
+       ↓
+Test Stops
+       ↓
+Remaining Steps Not Executed
+
+SOFT Assertion
+******************
+Assertion Fails
+       ↓
+Continue Execution
+       ↓
+Check Next Assertions
+       ↓
+Report All Failures

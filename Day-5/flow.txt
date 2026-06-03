@@ -1,0 +1,28 @@
+[Project_Root_Directory]
+ │
+ ├── src/main/java (or src/main/python)
+ │    ├── com.project.base
+ │    │    └── BaseTest.java
+ │    ├── com.project.pages
+ │    │    ├── LoginPage.java
+ │    │    └── DashboardPage.java
+ │    └── com.project.utils
+ │         ├── ConfigReader.java
+ │         ├── ExcelUtil.java
+ │         └── ExtentReportManager.java
+ │
+ ├── src/test/java
+ │    └── com.project.tests
+ │         ├── LoginTest.java
+ │         └── DashboardTest.java
+ │
+ ├── src/test/resources
+ │    ├── config.properties
+ │    ├── testdata.xlsx
+ │    └── testng.xml
+ │
+ ├── target/ (or test-output/)
+ │    ├── reports/
+ │    └── screenshots/
+ │
+ └── pom.xml (or build.gradle)
